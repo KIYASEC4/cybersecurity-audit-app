@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Système - Machines</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Infrastructure Système - Machines</h1>
+        <p class="mb-4 text-gray-700">Identifiez les machines physiques et virtuelles constituant le système.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Nom de la machine :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Serveur DB-01">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Type de machine :</span>
+                <select class="w-full mt-1 p-2 border rounded">
+                    <option>Physique</option>
+                    <option>Virtuelle</option>
+                </select>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Système d’exploitation et version :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Windows Server 2019, Ubuntu 22.04">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Domaine d’appartenance (si applicable) :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Active Directory, Workgroup">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Rôles activés (pour serveurs Windows) :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: DNS, DHCP, AD DS"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Logiciels et applications installées :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: MySQL, Apache, Docker"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Droits d'exécution des logiciels :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Root, Administrateur, Utilisateur restreint"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Données stockées sur la machine :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Logs, Bases de données, Fichiers de configuration"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Interfaces réseau et connexions :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Ethernet, Wi-Fi, VLAN, accès Internet"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
