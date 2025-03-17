@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositif d’Administration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Dispositif d’Administration</h1>
+        <p class="mb-4 text-gray-700">Identifiez les méthodes d’administration des composants du système.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Composant administré :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Serveur Windows AD">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Administrateur responsable :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Équipe IT Sécurité">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Droits d’administration :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Administrateur système, accès root"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Mode d’administration :</span>
+                <select class="w-full mt-1 p-2 border rounded">
+                    <option>Accès local</option>
+                    <option>Accès distant</option>
+                    <option>Machine de rebond</option>
+                </select>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Interface / Service utilisé :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: RDP, SSH, Telnet, WinRM"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Poste et réseau d’administration :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Poste sécurisé, VLAN d’administration"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Existence de télémaintenance :</span>
+                <select class="w-full mt-1 p-2 border rounded">
+                    <option>Oui</option>
+                    <option>Non</option>
+                </select>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Qui peut accéder à la télémaintenance et comment ?</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Fournisseur externe via VPN sécurisé"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
