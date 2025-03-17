@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Réseau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Infrastructure Réseau</h1>
+        <p class="mb-4 text-gray-700">Identifiez les réseaux et sous-réseaux, ainsi que leurs équipements associés.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Nom du réseau / sous-réseau :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: VLAN-Administratif">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Équipements réseau associés :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Switch Cisco 2960, Firewall FortiGate"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Modèles et versions :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Cisco IOS 15.2, FortiOS 6.4"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Machines connectées :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Serveurs, postes clients, imprimantes réseau"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Interconnexions avec d’autres réseaux :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Interconnexion avec VLAN Sécurité, accès VPN"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Règles de filtrage appliquées :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: ACLs sur routeurs, règles de pare-feu, segmentation réseau"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
