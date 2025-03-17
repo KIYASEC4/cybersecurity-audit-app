@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipements Industriels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Équipements Industriels</h1>
+        <p class="mb-4 text-gray-700">Identifiez les capteurs, actionneurs et unités de calcul terrain.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Nom de l’équipement :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Capteur de température">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Type d’équipement :</span>
+                <select class="w-full mt-1 p-2 border rounded">
+                    <option>Capteur</option>
+                    <option>Actionneur</option>
+                    <option>Automate</option>
+                    <option>Calculateur</option>
+                </select>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Fonction de l’équipement :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Surveillance de la température ambiante"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Connexion avec une unité de calcul :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Connecté à un automate Siemens S7 via Modbus"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Protocole de communication utilisé :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Modbus, OPC UA, MQTT">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Entités utilisant cet équipement :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Superviseur SCADA, techniciens de maintenance"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
