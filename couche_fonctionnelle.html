@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couche Fonctionnelle et Métier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Couche Fonctionnelle et Métier</h1>
+        <p class="mb-4 text-gray-700">Identifiez les données manipulées par le système et leur rôle dans les processus.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Nom de la donnée :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Identifiants utilisateurs">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Processus impliqué :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Décrivez dans quel processus cette donnée est utilisée"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Composants applicatifs impliqués :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Base de données, API, système de logs"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Composants systèmes et matériels impliqués :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Serveurs, NAS, pare-feu"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Qui peut y accéder et avec quels droits ?</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Administrateurs (lecture/écriture), Utilisateurs (lecture)"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Par quels moyens l’accès est-il effectué ?</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Interface web, API REST, SSH"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
