@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit par Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Audit par Framework</h1>
+        <p class="mb-4 text-gray-700">Évaluez votre système d'information en fonction d'un référentiel de sécurité.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Nom du framework utilisé :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: ISO 27001, NIST, EBIOS-RM">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Critères d’évaluation :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Gestion des risques, protection des données, conformité légale"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Niveau actuel de conformité :</span>
+                <select class="w-full mt-1 p-2 border rounded">
+                    <option>Faible</option>
+                    <option>Moyen</option>
+                    <option>Élevé</option>
+                </select>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Actions recommandées :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Mise en place d’un plan de sensibilisation, durcissement des accès"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Échéances et suivi :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Audit interne trimestriel, certification prévue en 2025"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
