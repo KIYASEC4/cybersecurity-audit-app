@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rôles et Responsabilités</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Rôles et Responsabilités</h1>
+        <p class="mb-4 text-gray-700">Identifiez les parties prenantes et leurs responsabilités.</p>
+        
+        <form class="space-y-4">
+            <label class="block">
+                <span class="text-gray-700">Nom de la partie prenante :</span>
+                <input type="text" class="w-full mt-1 p-2 border rounded" placeholder="Ex: Responsable sécurité informatique">
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Rôle dans le système :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Supervise la sécurité des infrastructures"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Interne ou externe ?</span>
+                <select class="w-full mt-1 p-2 border rounded">
+                    <option>Interne</option>
+                    <option>Externe</option>
+                </select>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Périmètre de responsabilité :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Gestion des accès, supervision SOC"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Privilèges d’accès logique :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Lecture/écriture sur les logs de sécurité"></textarea>
+            </label>
+            
+            <label class="block">
+                <span class="text-gray-700">Privilèges d’accès physique :</span>
+                <textarea class="w-full mt-1 p-2 border rounded" placeholder="Ex: Accès aux serveurs dans le datacenter"></textarea>
+            </label>
+            
+            <a href="index.html" class="text-blue-500 hover:underline">Retour à l’accueil</a>
+        </form>
+    </div>
+</body>
+</html>
