@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Cybersécurité - Présentation du Système</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .section-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .dynamic-section {
+            border-left: 3px solid #0d6efd;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        .form-section-title {
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="mb-4 text-center text-primary">Présentation Générale du Système</h1>
+
+        <form id="auditForm" class="needs-validation" novalidate>
+            <!-- Section 1.1 -->
+            <div class="section-card">
+                <h3 class="form-section-title">1.1 Mission et objectifs du système</h3>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Description de la mission principale</label>
+                        <textarea class="form-control" name="mission" rows="3" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Objectifs stratégiques</label>
+                        <textarea class="form-control" name="objectifs" rows="2" required></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Criticité pour l'organisation</label>
+                        <select class="form-select" name="criticite" required>
+                            <option value="">Sélectionner...</option>
+                            <option>Faible</option>
+                            <option>Moyenne</option>
+                            <option>Haute</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Date de mise en service</label>
+                        <input type="date" class="form-control" name="date_mise_service" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1.2 -->
+            <div class="section-card">
+                <h3 class="form-section-title">1.2 Vue d'ensemble du système</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Nom du système</label>
+                        <input type="text" class="form-control" name="nom_systeme" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Propriétaire fonctionnel</label>
+                        <input type="text" class="form-control" name="proprietaire" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Responsable technique</label>
+                        <input type="text" class="form-control" name="responsable_tech" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Utilisateurs principaux</label>
+                        <input type="text" class="form-control" name="utilisateurs" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Systèmes connectés/dépendants</label>
+                        <div id="systemes-connectes">
+                            <div class="dynamic-section">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Nom du système connecté">
+                                    <button class="btn btn-outline-danger" type="button" onclick="removeElement(this)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-2" onclick="addElement('systemes-connectes')">+ Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1.3 -->
+            <div class="section-card">
+                <h3 class="form-section-title">1.3 Périmètre et frontières</h3>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Composants inclus dans le périmètre</label>
+                        <div id="composants-inclus">
+                            <div class="dynamic-section">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Nom du composant">
+                                    <button class="btn btn-outline-danger" type="button" onclick="removeElement(this)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-2" onclick="addElement('composants-inclus')">+ Ajouter</button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Systèmes externes en interface</label>
+                        <div id="systemes-externes">
+                            <div class="dynamic-section">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Nom du système externe">
+                                    <button class="btn btn-outline-danger" type="button" onclick="removeElement(this)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-2" onclick="addElement('systemes-externes')">+ Ajouter</button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Exclusions spécifiques</label>
+                        <div id="exclusions">
+                            <div class="dynamic-section">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Élément exclu">
+                                    <button class="btn btn-outline-danger" type="button" onclick="removeElement(this)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-2" onclick="addElement('exclusions')">+ Ajouter</button>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Interfaces réseau</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="interfaces_reseau" placeholder="Description des interfaces">
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Sites géographiques concernés</label>
+                        <div id="sites">
+                            <div class="dynamic-section">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Nom du site">
+                                    <input type="text" class="form-control" placeholder="Pays">
+                                    <button class="btn btn-outline-danger" type="button" onclick="removeElement(this)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-2" onclick="addElement('sites')">+ Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1.4 -->
+            <div class="section-card">
+                <h3 class="form-section-title">1.4 Architecture globale</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Schéma d'architecture joint</label>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-primary active toggle-btn">Oui</button>
+                                <button type="button" class="btn btn-outline-primary toggle-btn">Non</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Documentation technique disponible</label>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-primary active toggle-btn">Oui</button>
+                                <button type="button" class="btn btn-outline-primary toggle-btn">Non</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Environnements existants</label>
+                        <div class="d-flex flex-wrap gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Production" id="prod">
+                                <label class="form-check-label" for="prod">Production</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Préproduction" id="preprod">
+                                <label class="form-check-label" for="preprod">Préproduction</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Test" id="test">
+                                <label class="form-check-label" for="test">Test</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Développement" id="dev">
+                                <label class="form-check-label" for="dev">Développement</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Autre" id="autre">
+                                <label class="form-check-label" for="autre">Autre</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contrôles de formulaire -->
+            <div class="section-card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Valider l'audit</button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="exportJSON()">Exporter JSON</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script>
+    // Gestion des éléments dynamiques
+    function addElement(containerId) {
+        const container = document.getElementById(containerId);
+        const template = container.querySelector('.dynamic-section').cloneNode(true);
+        template.querySelectorAll('input').forEach(input => input.value = '');
+        container.appendChild(template);
+    }
+
+    function removeElement(btn) {
+        btn.closest('.dynamic-section').remove();
+    }
+
+    // Gestion des boutons toggle
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.parentNode.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Sauvegarde automatique
+    document.querySelectorAll('input, textarea, select').forEach(element => {
+        element.addEventListener('input', saveFormData);
+    });
+
+    function saveFormData() {
+        const formData = new FormData(document.getElementById('auditForm'));
+        const data = Object.fromEntries(formData);
+        localStorage.setItem('auditFormData', JSON.stringify(data));
+    }
+
+    // Chargement des données
+    window.addEventListener('load', () => {
+        const savedData = localStorage.getItem('auditFormData');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            Object.entries(data).forEach(([key, value]) => {
+                const element = document.querySelector(`[name="${key}"]`);
+                if (element) element.value = value;
+            });
+        }
+    });
+
+    // Export JSON
+    function exportJSON() {
+        const formData = new FormData(document.getElementById('auditForm'));
+        const data = Object.fromEntries(formData);
+        
+        const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `audit-systeme-${new Date().toISOString().slice(0,10)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    // Validation du formulaire
+    document.getElementById('auditForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!this.checkValidity()) {
+            e.stopPropagation();
+        } else {
+            alert('Audit validé avec succès !');
+            localStorage.removeItem('auditFormData');
+            this.reset();
+        }
+        this.classList.add('was-validated');
+    }, false);
+</script>
+</body>
+</html>
