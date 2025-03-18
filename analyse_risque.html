@@ -71,35 +71,35 @@
             </div>
             <div class="section">
                 <h2>SECTION 2: INVENTAIRE DES FONCTIONS DU SYSTÈME</h2>
-                <button class="btn btn-add" onclick="ajouterFonction()">Ajouter une fonction</button>
+                <button class="btn btn-add" onclick="ajouterElement('fonctions-container', 'fonction')">Ajouter une fonction</button>
                 <div id="fonctions-container"></div>
             </div>
             <div class="section">
                 <h2>SECTION 3: CARTOGRAPHIE DES DONNÉES</h2>
-                <button class="btn btn-add" onclick="ajouterDonnees()">Ajouter une catégorie de données</button>
+                <button class="btn btn-add" onclick="ajouterElement('donnees-container', 'categorie')">Ajouter une catégorie de données</button>
                 <div id="donnees-container"></div>
+            </div>
+            <div class="section">
+                <h2>SECTION 4: INFRASTRUCTURE TECHNIQUE</h2>
+                <button class="btn btn-add" onclick="ajouterElement('infrastructure-container', 'serveur')">Ajouter un serveur</button>
+                <div id="infrastructure-container"></div>
+            </div>
+            <div class="section">
+                <h2>SECTION 5: SÉCURITÉ ET CONTRÔLES</h2>
+                <button class="btn btn-add" onclick="ajouterElement('securite-container', 'controle')">Ajouter un contrôle</button>
+                <div id="securite-container"></div>
             </div>
         </div>
         <button class="btn btn-print" onclick="window.print()">Imprimer</button>
         <button class="btn btn-export" onclick="exporterJSON()">Exporter JSON</button>
     </div>
     <script>
-        function ajouterFonction() {
-            let container = document.getElementById("fonctions-container");
+        function ajouterElement(containerId, label) {
+            let container = document.getElementById(containerId);
             let div = document.createElement("div");
             div.classList.add("section");
-            div.innerHTML = `<h3>Nouvelle Fonction</h3>
-                             <div class='form-group'><label>Nom de la fonction :</label>
-                             <input type='text'></div>
-                             <button class='btn btn-remove' onclick='this.parentNode.remove()'>Supprimer</button>`;
-            container.appendChild(div);
-        }
-        function ajouterDonnees() {
-            let container = document.getElementById("donnees-container");
-            let div = document.createElement("div");
-            div.classList.add("section");
-            div.innerHTML = `<h3>Nouvelle Catégorie de Données</h3>
-                             <div class='form-group'><label>Nom de la catégorie de données :</label>
+            div.innerHTML = `<h3>Nouvel élément</h3>
+                             <div class='form-group'><label>Nom de ${label} :</label>
                              <input type='text'></div>
                              <button class='btn btn-remove' onclick='this.parentNode.remove()'>Supprimer</button>`;
             container.appendChild(div);
@@ -110,10 +110,14 @@
                 mission: document.getElementById("mission").value,
                 criticite: document.getElementById("criticite").value,
                 fonctions: [],
-                donnees: []
+                donnees: [],
+                infrastructure: [],
+                securite: []
             };
             document.querySelectorAll('#fonctions-container .section input').forEach(input => data.fonctions.push(input.value));
             document.querySelectorAll('#donnees-container .section input').forEach(input => data.donnees.push(input.value));
+            document.querySelectorAll('#infrastructure-container .section input').forEach(input => data.infrastructure.push(input.value));
+            document.querySelectorAll('#securite-container .section input').forEach(input => data.securite.push(input.value));
             let blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
             let a = document.createElement("a");
             a.href = URL.createObjectURL(blob);
