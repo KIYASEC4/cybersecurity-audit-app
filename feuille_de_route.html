@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Audit de Cybersécurité - Section 1</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label, input, select, textarea { display: block; margin-top: 10px; width: 100%; }
+        .section { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        button { margin-top: 10px; padding: 10px; background: blue; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Formulaire d'Audit de Cybersécurité - Section 1</h1>
+    <form id="auditForm">
+        
+        <div class="section">
+            <h2>1.1 Mission et objectifs du système</h2>
+            <label>Mission principale: <textarea id="mission"></textarea></label>
+            <label>Objectifs stratégiques: <textarea id="objectifs"></textarea></label>
+            <label>Criticité pour l'organisation:
+                <select id="criticite">
+                    <option value="faible">Faible</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="haute">Haute</option>
+                </select>
+            </label>
+            <label>Date de mise en service: <input type="date" id="date_mise_service"></label>
+        </div>
+
+        <div class="section">
+            <h2>1.2 Vue d'ensemble du système</h2>
+            <label>Nom du système: <input type="text" id="nom_systeme"></label>
+            <label>Propriétaire fonctionnel: <input type="text" id="proprietaire_fonctionnel"></label>
+            <label>Responsable technique: <input type="text" id="responsable_technique"></label>
+            <label>Utilisateurs principaux: <textarea id="utilisateurs_principaux"></textarea></label>
+            <label>Systèmes connectés/dépendants: <textarea id="systemes_connectes"></textarea></label>
+        </div>
+
+        <div class="section">
+            <h2>1.3 Périmètre et frontières</h2>
+            <label>Composants inclus dans le périmètre: <textarea id="composants_inclus"></textarea></label>
+            <label>Systèmes externes en interface: <textarea id="systemes_externes"></textarea></label>
+            <label>Exclusions spécifiques: <textarea id="exclusions"></textarea></label>
+            <label>Interfaces réseau (internes/externes): <textarea id="interfaces_reseau"></textarea></label>
+            <label>Sites géographiques concernés: <textarea id="sites_geographiques"></textarea></label>
+        </div>
+
+        <div class="section">
+            <h2>1.4 Architecture globale</h2>
+            <label>Schéma d'architecture joint ?
+                <input type="checkbox" id="schema_architecture">
+            </label>
+            <label>Documentation technique disponible ?
+                <input type="checkbox" id="documentation_technique">
+            </label>
+            <label>Environnements existants:</label>
+            <label><input type="checkbox" id="env_production"> Production</label>
+            <label><input type="checkbox" id="env_preprod"> Préproduction</label>
+            <label><input type="checkbox" id="env_test"> Test</label>
+            <label><input type="checkbox" id="env_dev"> Développement</label>
+            <label>Autre environnement: <input type="text" id="env_autre"></label>
+        </div>
+
+        <button type="button" onclick="submitForm()">Soumettre</button>
+    </form>
+    
+    <h2>Résumé des Informations</h2>
+    <pre id="output"></pre>
+
+    <script>
+        function submitForm() {
+            const formData = {
+                mission: document.getElementById('mission').value,
+                objectifs: document.getElementById('objectifs').value,
+                criticite: document.getElementById('criticite').value,
+                date_mise_service: document.getElementById('date_mise_service').value,
+                nom_systeme: document.getElementById('nom_systeme').value,
+                proprietaire_fonctionnel: document.getElementById('proprietaire_fonctionnel').value,
+                responsable_technique: document.getElementById('responsable_technique').value,
+                utilisateurs_principaux: document.getElementById('utilisateurs_principaux').value,
+                systemes_connectes: document.getElementById('systemes_connectes').value,
+                composants_inclus: document.getElementById('composants_inclus').value,
+                systemes_externes: document.getElementById('systemes_externes').value,
+                exclusions: document.getElementById('exclusions').value,
+                interfaces_reseau: document.getElementById('interfaces_reseau').value,
+                sites_geographiques: document.getElementById('sites_geographiques').value,
+                schema_architecture: document.getElementById('schema_architecture').checked ? 'Oui' : 'Non',
+                documentation_technique: document.getElementById('documentation_technique').checked ? 'Oui' : 'Non',
+                environnements: {
+                    production: document.getElementById('env_production').checked ? 'Oui' : 'Non',
+                    preproduction: document.getElementById('env_preprod').checked ? 'Oui' : 'Non',
+                    test: document.getElementById('env_test').checked ? 'Oui' : 'Non',
+                    developpement: document.getElementById('env_dev').checked ? 'Oui' : 'Non',
+                    autre: document.getElementById('env_autre').value
+                }
+            };
+            document.getElementById('output').textContent = JSON.stringify(formData, null, 2);
+        }
+    </script>
+</body>
+</html>
