@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Audit de Cybersécurité</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .tab {
+            overflow: hidden;
+            border-bottom: 2px solid #2c3e50;
+            margin-bottom: 20px;
+        }
+        .tab button {
+            background: none;
+            border: none;
+            padding: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+        .tab button:hover, .tab button.active {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: white;
+        }
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-add { background-color: #27ae60; color: white; }
+        .btn-remove { background-color: #e74c3c; color: white; }
+        .btn-print { background-color: #3498db; color: white; }
+        .btn-export { background-color: #f39c12; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FORMULAIRE D'AUDIT DE CYBERSÉCURITÉ</h1>
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'systemes')">Systèmes</button>
+            <button class="tablinks" onclick="openTab(event, 'fonctions')">Fonctions</button>
+            <button class="tablinks" onclick="openTab(event, 'donnees')">Données</button>
+            <button class="tablinks" onclick="openTab(event, 'securite')">Sécurité</button>
+        </div>
+        <div id="systemes" class="tabcontent" style="display:block;">
+            <h2>Systèmes</h2>
+            <button class="btn btn-add" onclick="ajouterElement('systemes-container')">Ajouter un système</button>
+            <div id="systemes-container"></div>
+        </div>
+        <div id="fonctions" class="tabcontent">
+            <h2>Fonctions</h2>
+            <button class="btn btn-add" onclick="ajouterElement('fonctions-container')">Ajouter une fonction</button>
+            <div id="fonctions-container"></div>
+        </div>
+        <div id="donnees" class="tabcontent">
+            <h2>Données</h2>
+            <button class="btn btn-add" onclick="ajouterElement('donnees-container')">Ajouter une catégorie</button>
+            <div id="donnees-container"></div>
+        </div>
+        <div id="securite" class="tabcontent">
+            <h2>Sécurité</h2>
+            <button class="btn btn-add" onclick="ajouterElement('securite-container')">Ajouter un contrôle de sécurité</button>
+            <div id="securite-container"></div>
+        </div>
+        <button class="btn btn-print" onclick="window.print()">Imprimer</button>
+        <button class="btn btn-export" onclick="exporterJSON()">Exporter JSON</button>
+    </div>
+    <script>
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        function ajouterElement(containerId) {
+            let container = document.getElementById(containerId);
+            let div = document.createElement("div");
+            div.innerHTML = `<input type='text' placeholder='Nom' style='margin-right: 10px;'>
+                            <button class='btn btn-remove' onclick='this.parentNode.remove()'>Supprimer</button>`;
+            container.appendChild(div);
+        }
+        function exporterJSON() {
+            let data = { systemes: [], fonctions: [], donnees: [], securite: [] };
+            document.querySelectorAll('#systemes-container div input').forEach(input => data.systemes.push(input.value));
+            document.querySelectorAll('#fonctions-container div input').forEach(input => data.fonctions.push(input.value));
+            document.querySelectorAll('#donnees-container div input').forEach(input => data.donnees.push(input.value));
+            document.querySelectorAll('#securite-container div input').forEach(input => data.securite.push(input.value));
+            let blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+            let a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "audit_cybersecurite.json";
+            a.click();
+        }
+    </script>
+</body>
+</html>
