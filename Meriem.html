@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Cybersécurité - Mariam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
+      font-family: 'Inter', sans-serif;
       background-color: #f4f6f9;
       color: #333;
       line-height: 1.6;
@@ -15,127 +16,321 @@
     header, footer {
       background-color: #1f2937;
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
     }
+    nav {
+      background-color: #111827;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #3b82f6; }
     section {
       max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      animation: fadeIn 1s ease-in;
     }
-    h1, h2, h3 {
+    h2 {
       color: #1f2937;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #2563eb;
+      display: inline-block;
     }
     .card {
       background-color: white;
-      padding: 20px;
+      padding: 25px;
       margin: 20px 0;
-      border-left: 4px solid #2563eb;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-left: 5px solid #2563eb;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-    }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 12px; border-bottom: 1px solid #ddd; }
     img {
       max-width: 100%;
       margin-top: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    a {
-      color: #2563eb;
+    footer {
+      background-color: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    a { color: #2563eb; }
+    ul { padding-left: 20px; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ebios-analysis {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .ebios-analysis h2 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 0.8rem;
+    }
+
+    .ebios-analysis h3 {
+      color: #2c3e50;
+      font-size: 1.4rem;
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    .ebios-analysis h4 {
+      color: #3498db;
+      font-size: 1.2rem;
+      margin: 1.2rem 0 0.8rem 0;
+    }
+
+    .subsection {
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e8f4fc;
+    }
+
+    .methodology-steps li {
+      margin-bottom: 0.5rem;
+    }
+
+    .img-container {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .analysis-img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background-color: #e8f4fc;
+      color: #2c3e50;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Portfolio Cybersécurité - Mariam</h1>
-    <p>Consultante en cybersécurité | Analyse de risques | SIEM | Sensibilisation</p>
-  </header>
 
-  <section>
-    <h2>Présentation</h2>
-    <div class="card">
-      <p>Étudiante en cybersécurité avec une double expérience en conseil et ingénierie. Ma vision : intégrer la sécurité à tous les niveaux du SI, avec une approche préventive, pédagogique et orientée résultats.</p>
-      <p><strong>Parcours :</strong> Master SSI (UT Troyes), INP Grenoble, ENSIAS.</p>
-    </div>
-  </section>
+<header>
+  <h1>Portfolio Cybersécurité - Mariam</h1>
+  <p>Consultante en cybersécurité | Analyse de risques | Pentest | Sensibilisation</p>
+</header>
 
-  <section>
-    <h2>Compétences et Certifications</h2>
-    <div class="card">
-      <h3>Certifications</h3>
+<nav>
+  <a href="#presentation">Présentation</a>
+  <a href="#competences">Compétences</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#formation">Sensibilisation</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="presentation">
+  <h2>Présentation</h2>
+  <div class="card">
+    <p>Étudiante en cybersécurité avec une double expérience en conseil et ingénierie. Ma vision : intégrer la sécurité à tous les niveaux du SI, avec une approche préventive, pédagogique et orientée résultats.</p>
+    <p><strong>Parcours :</strong> Master SSI (UT Troyes), INP Grenoble, ENSIAS.</p>
+  </div>
+</section>
+
+<section id="competences">
+  <h2>Compétences et Certifications</h2>
+  <div class="card">
+    <h3>Certifications</h3>
+    <ul>
+      <li>ISO 27001</li>
+      <li>EBIOS RM</li>
+    </ul>
+    <h3>Compétences techniques</h3>
+    <table>
+      <tr><th>Domaine</th><th>Compétences</th><th>Niveau</th></tr>
+      <tr><td>Réseau</td><td>VLAN, DMZ, TCP/UDP, DHCP, Firewall</td><td>★★★★☆</td></tr>
+      <tr><td>Systèmes</td><td>Linux, Windows, DNS, AD, LDAP</td><td>★★★★☆</td></tr>
+      <tr><td>Offensif</td><td>Burp, Metasploit, John the Ripper</td><td>★★★☆☆</td></tr>
+      <tr><td>Défensif</td><td>SIEM (Graylog), OCS Inventory</td><td>★★★★★</td></tr>
+      <tr><td>Normes</td><td>ISO 27001, EBIOS RM, ANSSI</td><td>★★★★★</td></tr>
+      <tr><td>Langages</td><td>Python, Java</td><td>★★★☆☆</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="realisations">
+  <h2>Réalisations et POCs</h2>
+
+  <div class="card">
+    <h3>Test d’intrusion – Boîte grise</h3>
+    <p><strong>Contexte :</strong> En tant qu'experte en cybersécurité offensive, j’ai été chargée de réaliser un test d’intrusion en boîte grise sur le système d’information d’un client. Ce test visait à identifier les vulnérabilités techniques et organisationnelles pouvant permettre à un attaquant d’accéder à des ressources sensibles.</p>
+    <h4>🔍 Étapes réalisées :</h4>
+    <ul>
+      <li>Connexion via VPN avec un compte utilisateur de domaine fourni par le client.</li>
+      <li>Identification du contrôleur de domaine à l’aide de <code>nmap -Pn</code>.</li>
+      <li>Analyse de la politique de mot de passe : faible complexité, vulnérable au password spraying.</li>
+      <li>Extraction de la liste des utilisateurs du domaine.</li>
+      <li>Dump des bases SAM, LSA et LSASS sur plusieurs machines à l’aide d’outils comme Mimikatz.</li>
+      <li>Récupération du mot de passe d’un compte administrateur de domaine.</li>
+      <li>Post-exploitation :</li>
       <ul>
-        <li>ISO 27001</li>
-        <li>EBIOS RM</li>
-        <li>Autres (à compléter)</li>
+        <li>Kerberoasting : extraction de tickets TGS pour attaques par force brute.</li>
+        <li>Analyse des partages réseau : identification de fichiers sensibles.</li>
+        <li>Cracking de hashs NTLM.</li>
+        <li>Utilisation de BloodHound pour cartographier les relations Active Directory.</li>
       </ul>
-      <h3>Compétences techniques</h3>
-      <table>
-        <tr><th>Domaine</th><th>Compétences</th><th>Niveau</th></tr>
-        <tr><td>Réseau</td><td>VLAN, DMZ, TCP/UDP, DHCP, Firewall</td><td>★★★★☆</td></tr>
-        <tr><td>Systèmes</td><td>Linux, Windows, DNS, AD, LDAP</td><td>★★★★☆</td></tr>
-        <tr><td>Offensif</td><td>Burp, Metasploit, John the Ripper</td><td>★★★☆☆</td></tr>
-        <tr><td>Défensif</td><td>SIEM (Graylog), OCS Inventory</td><td>★★★★★</td></tr>
-        <tr><td>Normes</td><td>ISO 27001, EBIOS RM, ANSSI</td><td>★★★★★</td></tr>
-        <tr><td>Langages</td><td>Python, Java</td><td>★★★☆☆</td></tr>
-      </table>
-    </div>
-  </section>
+    </ul>
+    <h4>⚠️ Vulnérabilités identifiées :</h4>
+    <ul>
+      <li>Absence de cloisonnement réseau interne.</li>
+      <li>Politique de mot de passe non conforme (faible complexité, durée illimitée).</li>
+      <li>Antivirus inefficace : absence de détection des outils utilisés.</li>
+      <li>Mots de passe faibles et partagés entre plusieurs comptes.</li>
+    </ul>
+    <h4>✅ Recommandations :</h4>
+    <ul>
+      <li>Mettre en place une segmentation réseau stricte.</li>
+      <li>Renforcer la politique de mots de passe (longueur, complexité, rotation).</li>
+      <li>Déployer une solution EDR avec capacités de détection comportementale.</li>
+      <li>Auditer les comptes à privilèges et mettre en place des alertes de connexion.</li>
+      <li>Sensibiliser les utilisateurs aux risques liés à l’usage de mots de passe simples.</li>
+    </ul>
+  </div>
 
-  <section>
-    <h2>Réalisations et POCs</h2>
-    <div class="card">
-      <h3>Gestion des incidents de sécurité</h3>
-      <p>Procédure de traitement d’incidents internes avec logigramme :</p>
-      <img src="image1.png" alt="Logigramme incident">
+  <div class="card ebios-analysis">
+    <h2>Analyse de Risques – Méthode EBIOS Risk Manager</h2>
+    
+    <div class="section">
+      <h3>Contexte du Projet</h3>
+      <p>Dans le cadre d'une mission de sécurisation d'un système d'information sensible, j'ai réalisé une analyse de risques complète selon la méthode EBIOS Risk Manager. Cette méthodologie, reconnue par l'ANSSI, m'a permis d'identifier, d'évaluer et de traiter les risques liés à la sécurité du système d'information étudié.</p>
     </div>
-    <div class="card">
-      <h3>Intégration sécurité dans les projets</h3>
-      <p>Méthodologie d'intégration dès la phase de conception. Objectifs et impacts à détailler.</p>
-    </div>
-    <div class="card">
-      <h3>Déploiement de solutions de sécurité</h3>
-      <ul>
-        <li><strong>Graylog :</strong> Déploiement d’un SIEM – Centralisation, visualisation, alertes.</li>
-        <li><strong>OCS Inventory :</strong> Inventaire automatisé – Visibilité, contrôle du parc IT.</li>
-      </ul>
-    </div>
-  </section>
 
-  <section>
-    <h2>Sensibilisation et formation</h2>
-    <div class="card">
-      <h3>Campagnes de phishing</h3>
-      <p>Simulation interne de campagnes de phishing, analyse des retours, sensibilisation ciblée.</p>
+    <div class="section">
+      <h3>Méthodologie Appliquée</h3>
+      <p>L'analyse a été structurée selon les 5 ateliers de la méthode EBIOS RM :</p>
+      <ol class="methodology-steps">
+        <li><strong>Cadrage et socle de sécurité</strong> : Définition du périmètre et des objectifs de sécurité</li>
+        <li><strong>Sources de risques</strong> : Identification des sources de menaces pertinentes</li>
+        <li><strong>Scénarios stratégiques</strong> : Élaboration des chemins d'attaque probables</li>
+        <li><strong>Scénarios opérationnels</strong> : Détermination des vecteurs techniques d'attaque</li>
+        <li><strong>Traitement du risque</strong> : Mise en place de mesures de sécurité adaptées</li>
+      </ol>
     </div>
-    <div class="card">
-      <h3>Sessions de sensibilisation</h3>
-      <p>Thèmes abordés : mots de passe, phishing, sécurité mail. Méthode participative, cas concrets.</p>
-    </div>
-  </section>
 
-  <section>
-    <h2>Références</h2>
-    <div class="card">
-      <p>Disponible sur demande ou intégrées ultérieurement (lettres, recommandations, témoignages).</p>
+    <div class="section">
+      <h3>Réalisation et Résultats</h3>
+      
+      <div class="subsection">
+        <h4>Scénario Stratégique</h4>
+        <div class="img-container">
+          <img src="Scénario stratégique.jpeg" alt="Scénario stratégique d'attaque selon EBIOS RM" class="analysis-img">
+        </div>
+        <p>J'ai identifié les chemins d'attaque potentiels qu'un concurrent pourrait exploiter pour accéder aux résultats d'études confidentielles. Le scénario stratégique met en évidence :</p>
+        <ul>
+          <li>L'origine de l'attaque : Un concurrent d'un client cherchant à obtenir des informations privilégiées</li>
+          <li>Les intermédiaires ciblés : Le prestataire informatique et le datacenter externe</li>
+          <li>L'objectif final : Le vol des résultats d'études</li>
+        </ul>
+      </div>
+      
+      <div class="subsection">
+        <h4>Scénario Opérationnel</h4>
+        <div class="img-container">
+          <img src="Scénario_stratégique.jpeg" alt="Scénario opérationnel d'attaque détaillant les étapes techniques" class="analysis-img">
+        </div>
+        <p>Pour le scénario opérationnel, j'ai détaillé les étapes techniques de l'attaque :</p>
+        <ol>
+          <li>Compromission initiale via une attaque contre le prestataire informatique</li>
+          <li>Intrusion physique dans la salle machine du datacenter</li>
+          <li>Accès physique aux baies de serveurs</li>
+          <li>Exfiltration du disque dur et accès aux données chiffrées</li>
+          <li>Tentatives de contournement des mesures de chiffrement</li>
+        </ol>
+        <p>Chaque étape a été évaluée selon une échelle de gravité (1-4) pour prioriser les mesures de sécurité.</p>
+      </div>
+      
+      <div class="subsection">
+        <h4>Traitement du Risque</h4>
+        <div class="img-container">
+          <img src="after_treatement.jpeg" alt="Évaluation du risque après application des mesures de traitement" class="analysis-img">
+        </div>
+        <p>Suite à l'analyse, j'ai :</p>
+        <ul>
+          <li>Proposé des mesures de sécurité spécifiques pour réduire les risques identifiés</li>
+          <li>Réévalué le niveau de risque résiduel après implémentation des mesures</li>
+          <li>Établi un plan d'action priorisé pour le déploiement des contrôles de sécurité</li>
+        </ul>
+      </div>
     </div>
-  </section>
 
-  <section>
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email : mariam@example.com</p>
-      <p><a href="#">Télécharger mon CV</a> | <a href="#">LinkedIn</a></p>
+    <div class="section skills">
+      <h3>Compétences Démontrées</h3>
+      <div class="skills-grid">
+        <div class="skill-tag">Application de la méthodologie EBIOS RM</div>
+        <div class="skill-tag">Analyse de scénarios d'attaque</div>
+        <div class="skill-tag">Évaluation quantitative des risques</div>
+        <div class="skill-tag">Élaboration de mesures de sécurité</div>
+        <div class="skill-tag">Communication visuelle des menaces</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Mariam – Portfolio Cybersécurité</p>
-  </footer>
-</body>
-</html>
+<section id="formation">
+  <h2>Sensibilisation et formation</h2>
+  <div class="card">
+    <h3>Sensibilisation des collaborateurs</h3>
+    <p>Formation aux bonnes pratiques cybersécurité : mots de passe, phishing, verrouillage de session, navigation sécurisée.</p>
+  </div>
+  <div class="card">
+    <h3>Sensibilisation des décideurs</h3>
+    <p>Approche stratégique pour les COMEX : risques métiers, ROI cybersécurité, enjeux réglementaires.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email : mariam@example.com</p>
+    <p><a href="#">Télécharger mon CV</a> | <a href="#">LinkedIn</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Mariam – Portfolio Cybersécurité</p>
+</footer>
