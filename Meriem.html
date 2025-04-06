@@ -6,99 +6,136 @@
   <title>Portfolio Cybersécurité - Mariam</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
+      background-color: #f4f6f9;
       color: #333;
+      line-height: 1.6;
     }
-    header {
-      background-color: #2e3a59;
+    header, footer {
+      background-color: #1f2937;
       color: white;
       padding: 20px;
       text-align: center;
     }
     section {
-      padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
+      padding: 40px 20px;
     }
-    h2 {
-      color: #2e3a59;
-      margin-bottom: 10px;
+    h1, h2, h3 {
+      color: #1f2937;
     }
-    .project, .scenario, .policy, .method, .note {
-      background: white;
+    .card {
+      background-color: white;
       padding: 20px;
-      margin-bottom: 20px;
-      border-left: 5px solid #2e3a59;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 20px 0;
+      border-left: 4px solid #2563eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    footer {
-      background-color: #2e3a59;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+    a {
+      color: #2563eb;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Portfolio Cybersécurité - Mariam</h1>
-    <p>Mes compétences, projets, analyses et méthodes</p>
+    <p>Consultante en cybersécurité | Analyse de risques | SIEM | Sensibilisation</p>
   </header>
 
   <section>
-    <h2>À propos de moi</h2>
-    <p>Étudiante en cybersécurité, passionnée par l'analyse de risques, les tests d'intrusion et la sensibilisation à la sécurité informatique.</p>
-  </section>
-
-  <section>
-    <h2>Mes réalisations</h2>
-    <div class="project">
-      <h3>Analyse de vulnérabilités sur un environnement web</h3>
-      <p>Outils : Nmap, Nikto, Burp Suite. Objectif : détecter les failles XSS, CSRF et SQLi.</p>
-    </div>
-    <!-- Ajouter d'autres projets ici -->
-  </section>
-
-  <section>
-    <h2>Scénarios de risques</h2>
-    <div class="scenario">
-      <h3>Attaque de phishing ciblée</h3>
-      <p>Description, impact, mesures de prévention et réaction.</p>
-    </div>
-    <!-- Ajouter d'autres scénarios -->
-  </section>
-
-  <section>
-    <h2>Politiques et procédures de sécurité</h2>
-    <div class="policy">
-      <h3>Politique de mot de passe</h3>
-      <p>Exigences de longueur, complexité, expiration, stockage sécurisé.</p>
-    </div>
-    <!-- Ajouter d'autres politiques -->
-  </section>
-
-  <section>
-    <h2>Méthodologie de pentest</h2>
-    <div class="method">
-      <h3>Processus suivi</h3>
-      <p>Reconnaissance > Scan > Exploitation > Post-exploitation > Rapport</p>
+    <h2>Présentation</h2>
+    <div class="card">
+      <p>Étudiante en cybersécurité avec une double expérience en conseil et ingénierie. Ma vision : intégrer la sécurité à tous les niveaux du SI, avec une approche préventive, pédagogique et orientée résultats.</p>
+      <p><strong>Parcours :</strong> Master SSI (UT Troyes), INP Grenoble, ENSIAS.</p>
     </div>
   </section>
 
   <section>
-    <h2>Notes personnelles</h2>
-    <div class="note">
-      <h3>Commandes Linux utiles en sécurité</h3>
-      <p>netstat, lsof, tcpdump, etc.</p>
+    <h2>Compétences et Certifications</h2>
+    <div class="card">
+      <h3>Certifications</h3>
+      <ul>
+        <li>ISO 27001</li>
+        <li>EBIOS RM</li>
+        <li>Autres (à compléter)</li>
+      </ul>
+      <h3>Compétences techniques</h3>
+      <table>
+        <tr><th>Domaine</th><th>Compétences</th><th>Niveau</th></tr>
+        <tr><td>Réseau</td><td>VLAN, DMZ, TCP/UDP, DHCP, Firewall</td><td>★★★★☆</td></tr>
+        <tr><td>Systèmes</td><td>Linux, Windows, DNS, AD, LDAP</td><td>★★★★☆</td></tr>
+        <tr><td>Offensif</td><td>Burp, Metasploit, John the Ripper</td><td>★★★☆☆</td></tr>
+        <tr><td>Défensif</td><td>SIEM (Graylog), OCS Inventory</td><td>★★★★★</td></tr>
+        <tr><td>Normes</td><td>ISO 27001, EBIOS RM, ANSSI</td><td>★★★★★</td></tr>
+        <tr><td>Langages</td><td>Python, Java</td><td>★★★☆☆</td></tr>
+      </table>
     </div>
-    <!-- Ajouter plus de notes -->
+  </section>
+
+  <section>
+    <h2>Réalisations et POCs</h2>
+    <div class="card">
+      <h3>Gestion des incidents de sécurité</h3>
+      <p>Procédure de traitement d’incidents internes avec logigramme :</p>
+      <img src="image1.png" alt="Logigramme incident">
+    </div>
+    <div class="card">
+      <h3>Intégration sécurité dans les projets</h3>
+      <p>Méthodologie d'intégration dès la phase de conception. Objectifs et impacts à détailler.</p>
+    </div>
+    <div class="card">
+      <h3>Déploiement de solutions de sécurité</h3>
+      <ul>
+        <li><strong>Graylog :</strong> Déploiement d’un SIEM – Centralisation, visualisation, alertes.</li>
+        <li><strong>OCS Inventory :</strong> Inventaire automatisé – Visibilité, contrôle du parc IT.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sensibilisation et formation</h2>
+    <div class="card">
+      <h3>Campagnes de phishing</h3>
+      <p>Simulation interne de campagnes de phishing, analyse des retours, sensibilisation ciblée.</p>
+    </div>
+    <div class="card">
+      <h3>Sessions de sensibilisation</h3>
+      <p>Thèmes abordés : mots de passe, phishing, sécurité mail. Méthode participative, cas concrets.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Références</h2>
+    <div class="card">
+      <p>Disponible sur demande ou intégrées ultérieurement (lettres, recommandations, témoignages).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email : mariam@example.com</p>
+      <p><a href="#">Télécharger mon CV</a> | <a href="#">LinkedIn</a></p>
+    </div>
   </section>
 
   <footer>
-    <p>Contact : mariam@example.com</p>
+    <p>&copy; 2025 Mariam – Portfolio Cybersécurité</p>
   </footer>
 </body>
 </html>
