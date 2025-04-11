@@ -203,31 +203,64 @@
 <section id="realisations">
   <h2>Réalisations et POCs</h2>
 
-  <div class="card">
-    <h3>Test d’intrusion – Boîte grise</h3>
-    <p><strong>Contexte :</strong> En tant qu'expert en cybersécurité offensive, j’ai été chargé de réaliser un test d’intrusion en boîte grise sur le SI d’un client pour identifier des vulnérabilités techniques et organisationnelles.</p>
-    <h4>🔍 Étapes réalisées :</h4>
-    <ul>
-      <li>Connexion via VPN avec un compte utilisateur de domaine.</li>
-      <li>Analyse de la politique de mot de passe (password spraying, etc.).</li>
-      <li>Extraction de la liste des utilisateurs, dump de bases SAM/LSA via Mimikatz.</li>
-      <li>Escalade de privilèges et cartographie AD (BloodHound).</li>
-    </ul>
-    <h4>⚠️ Vulnérabilités identifiées :</h4>
-    <ul>
-      <li>Absence de segmentation réseau interne.</li>
-      <li>Politique de mot de passe trop laxiste.</li>
-      <li>Antivirus inefficace (aucune alerte sur les outils offensifs).</li>
-      <li>Mots de passe partagés et réutilisés.</li>
-    </ul>
-    <h4>✅ Recommandations :</h4>
-    <ul>
-      <li>Segmentation réseau stricte.</li>
-      <li>Renforcer la politique de mots de passe.</li>
-      <li>Mise en place d’une solution EDR.</li>
-      <li>Sensibilisation globale sur la robustesse des mots de passe.</li>
-    </ul>
-  </div>
+ <div class="card">
+  <h3>Test d’intrusion – Boîte grise</h3>
+  <p><strong>Contexte :</strong> J’ai mené un test d’intrusion en boîte grise pour un client. J’ai obtenu un accès au réseau via VPN en utilisant un compte utilisateur de domaine, dans le but d’évaluer la résistance de l’infrastructure interne.</p>
+  
+  <h4>🔍 Étapes clés :</h4>
+  <ul>
+    <li><strong>Découverte du contrôleur de domaine :</strong> 
+      <ul>
+        <li>Lancement d’un scan avec <code>nmap -Pn</code> pour identifier les hôtes critiques.</li>
+      </ul>
+    </li>
+    <li><strong>Analyse de la politique de mots de passe :</strong> 
+      <ul>
+        <li>Politique faible permettant des attaques de type “password spraying”.</li>
+      </ul>
+    </li>
+    <li><strong>Enumération des utilisateurs :</strong> 
+      <ul>
+        <li>Récupération de la liste des comptes de domaine.</li>
+      </ul>
+    </li>
+    <li><strong>Dump des bases SAM, LSA et NTDS :</strong> 
+      <ul>
+        <li>Utilisation d’outils pour extraire les hashes et informations d’authentification (LSASS, lsa, sam, ntds).</li>
+      </ul>
+    </li>
+    <li><strong>Escalade de privilèges :</strong> 
+      <ul>
+        <li>Déchiffrement des hashes via attaques offline (NTLM, Kerberoasting).</li>
+        <li>Obtention du mot de passe d’un compte Admin du domaine.</li>
+      </ul>
+    </li>
+    <li><strong>Post-exploitation :</strong> 
+      <ul>
+        <li>Analyse des partages réseau pour identifier des fichiers sensibles.</li>
+        <li>Attaque Kerberoasting pour forcer les tickets TGS.</li>
+        <li>Cartographie Active Directory à l’aide de <code>BloodHound</code> pour visualiser les chemins d’attaque.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>⚠️ Vulnérabilités majeures :</h4>
+  <ul>
+    <li>Absence de cloisonnement (segmentation réseau) interne.</li>
+    <li>Politique de mots de passe insuffisante (faible complexité, longue durée).</li>
+    <li>Solution antivirus/EDR inefficace face à des outils offensifs communs.</li>
+    <li>Utilisation de mots de passe trop simples et réutilisés.</li>
+  </ul>
+
+  <h4>✅ Recommandations :</h4>
+  <ul>
+    <li>Mettre en place une segmentation réseau stricte (VLAN, DMZ, etc.).</li>
+    <li>Renforcer la politique de mots de passe (complexité, rotation, historique).</li>
+    <li>Déployer une solution de sécurité plus robuste (EDR, SIEM) et activer la détection comportementale.</li>
+    <li>Sensibiliser les utilisateurs sur l’importance des mots de passe forts et de la vigilance face au phishing.</li>
+  </ul>
+</div>
+
 
   <div class="card ebios-analysis">
   <h2>🔐 Analyse de Risques – Méthode EBIOS RM</h2>
